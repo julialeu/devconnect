@@ -17,8 +17,8 @@ Route::get('/', function () {
     return view('main');
 });
 
-Route::get('/register', [RegisterController::class, 'index']);
-//Route::get('/auth', [RegisterController::class, 'authUser']);
+Route::get('/register', [RegisterController::class, 'index'])->name('register');
+Route::post('/register', [RegisterController::class, 'store']);
 
 
 
