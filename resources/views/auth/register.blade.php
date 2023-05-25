@@ -36,7 +36,7 @@
                 </div>
                 <div class="mb-5">
                     <label for="password" class="mb-2 block uppercase text-gray-500 font-bold">Password</label>
-                    <input id="password" name="password" type="password" placeholder="Your password" class="border p-3 w-full rounded-lg @error('password') border-red-500 @enderror" value="{{ old('password') }}"/>
+                    <input id="password" name="password" type="password" placeholder="Your password" class="border p-3 w-full rounded-lg @error('password') border-red-500 @enderror"/>
                     @error('password')
                     <p class="text-red-500 text-xs my-2 p-2">{{ $message }}</p>
                     @enderror
