@@ -16,12 +16,20 @@
                 </form>
         </div>
         <div class="md:w-1/2 p-10 bg-white rounded-lg shadow-xl mt-10 md:mt-0">
-            <form action="{{ route('register') }}" method="POST" novalidate>
+            <form action="{{ route('posts.store') }}" method="POST" novalidate>
                 @csrf
                 <div class="mb-5">
                     <label for="title" class="mb-2 block uppercase text-gray-500 font-bold">Title</label>
                     <input id="title" name="title" type="text" placeholder="Post title" class="border p-3 w-full rounded-lg @error('name') border-red-500 @enderror" value="{{ old('title') }}" />
                     @error('title')
+                    <p class="text-red-500 text-xs my-2 p-2">{{ $message }}</p>
+                    @enderror
+                </div>
+                <div class="mb-5">
+                    <input
+                        name="image" type="hidden" value="{{ old('image') }}"
+                    />
+                    @error('image')
                     <p class="text-red-500 text-xs my-2 p-2">{{ $message }}</p>
                     @enderror
                 </div>
