@@ -14,8 +14,11 @@ class  PostController extends Controller
     }
     public function index(User $user)
     {
+        $posts = Post::where('user_id', $user->id)->get();
+        // dd($posts);
         return view('dashboard', [
-            'user' => $user
+            'user' => $user,
+            'posts' => $posts
         ]);
     }
 
@@ -32,7 +35,23 @@ class  PostController extends Controller
             'image' => 'required'
         ]);
 
-        Post::create([
+        // Post::create([
+        //     'title' => $request->title,
+        //     'description' => $request->description,
+        //     'image' => $request->image,
+        //     'user_id' => auth()->user()->id
+        // ]);
+
+        //Other way
+        // $post = new Post;
+        // $post->title = $request->title;
+        // $post->description = $request->description;
+        // $post->image = $request->image;
+        // $post->user_id = auth()->user()->id;
+        // $post->save();
+
+        //Saving post with eloquent
+        $request->user()->posts()->create([
             'title' => $request->title,
             'description' => $request->description,
             'image' => $request->image,
