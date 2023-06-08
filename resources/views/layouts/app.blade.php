@@ -23,8 +23,11 @@
                             </svg>
                             Create
                         </a>
-                        <a class="font-bold text-gray-600 text-sm" href="{{ route('posts.index', auth()->user()->username)}}">
-                            Hello: <span class="font-normal"> {{ auth()->user()->username }} </span>
+                        <a class="font-bold text-gray-600 text-sm" href="{{ route('posts.index', auth()->user()->username) }}">
+                            Hello: 
+                            <span class="font-normal"> 
+                                {{ auth()->user()->username }}
+                             </span>
                         </a>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
@@ -35,7 +38,7 @@
 
                 @guest
                     <nav class="flex gap-2 items-center">
-                        <a class="font-bold uppercase text-gray-600 text-sm" href="#"> Login </a>
+                        <a class="font-bold uppercase text-gray-600 text-sm" href="{{ route('login') }}"> Login </a>
                         <a class="font-bold uppercase text-gray-600 text-sm" href="{{ route('register') }}"> Register </a>
                     </nav>
                 @endguest
