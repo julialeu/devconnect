@@ -9,7 +9,11 @@
     <div class="flex justify-center">
         <div class="w-full md:w-8/12 lg:w-6/12 flex flex-col items-center md:flex-row">
             <div class="w-8/12 lg:w-6/12 px-5">
-                <img src="{{ asset('img/user.png')}}" alt="image user">
+                <img src="{{
+                     $user->image ?
+                     asset('profiles') . '/' . $user->image :
+                     asset('img/user.png')}}"
+                     alt="image user">
             </div>
             <div class="md:w-8/12 lg:w-6/12 px-5 flex flex-col items-center md:justify-center md:items-start py-10 md:py-10">
 
@@ -37,9 +41,28 @@
                     <span class="font-normal">Following</span>
                 </p>
                 <p class="text-gray-800 text-sm mb-3 font-bold">
-                    100000
+                    {{ $user->posts->count() }}
                     <span class="font-normal">Posts</span>
                 </p>
+
+                @auth
+                <form action="" method="POST">
+                    @csrf
+                    <input
+                        type="submit"
+                        class="bg-blue-600 text-white uppercase rounded-lg px-3 py-1 text-xs font-bold cursor-pointer"
+                        value="Follow"
+                    />
+                </form>
+                    <form action="" method="POST">
+                        @csrf
+                        <input
+                            type="submit"
+                            class="bg-red-600 text-white uppercase rounded-lg px-3 py-1 text-xs font-bold cursor-pointer"
+                            value="Unfollow"
+                        />
+                    </form>
+                @endauth
             </div>
         </div>
     </div>
