@@ -5,5 +5,5 @@
 @endsection
 
 @section(('contenido'))
-    Content main page
+    Content main page holaaaaaaa
 @endsection

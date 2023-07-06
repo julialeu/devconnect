@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\FollowerController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\LoginController;
@@ -21,9 +22,7 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/', function () {
-    return view('main');
-});
+Route::get('/', HomeController::class)->name('home');
 
 Route::get('/edit-profile', [ProfileController::class, 'index'])->name('profile.index');
 Route::post('/edit-profile', [ProfileController::class, 'store'])->name('profile.store');

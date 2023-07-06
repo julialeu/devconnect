@@ -11,7 +11,7 @@
     <body class="bg-gray-100">
         <header class="p-5 border-b bg-white shadow">
             <div class="container mx-auto flex justify-between items-center">
-                <h1 class="text-3xl font-black"> DevConnect </h1>
+                <a href="{{ route('home') }}" class="text-3xl font-black"> DevConnect </a>
                 @auth
                     <nav class="flex gap-2 items-center">
                         <a class="flex items-center gap-2 bg-white border p-2 text-gray-600
@@ -24,8 +24,8 @@
                             Create
                         </a>
                         <a class="font-bold text-gray-600 text-sm" href="{{ route('posts.index', auth()->user()->username) }}">
-                            Hello: 
-                            <span class="font-normal"> 
+                            Hello:
+                            <span class="font-normal">
                                 {{ auth()->user()->username }}
                              </span>
                         </a>
