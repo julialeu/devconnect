@@ -5,5 +5,5 @@
 @endsection
 
 @section(('contenido'))
-    Content main page holaaaaaaa
+    <x-list-post :posts="$posts"/>
 @endsection

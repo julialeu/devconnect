@@ -7,6 +7,7 @@
         <title>DevConnect - @yield('titulo')</title>
         @vite('resources/css/app.css')
         @vite('resources/js/app.js')
+        @livewireScripts
     </head>
     <body class="bg-gray-100">
         <header class="p-5 border-b bg-white shadow">
@@ -52,11 +53,12 @@
                 @yield('contenido')
         </main>
 
-    <footer class="mt-10 text-center p-5 text-gray-500 font-bold uppercase">
-        DevConnect - All Rights Reserved
-        {{ now()->year }}
-    </footer>
+        <footer class="mt-10 text-center p-5 text-gray-500 font-bold uppercase">
+            DevConnect - All Rights Reserved
+            {{ now()->year }}
+        </footer>
 
+        @livewireScripts
     </body>
 </html>
 
